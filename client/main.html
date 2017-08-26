@@ -1,0 +1,16 @@
+<head>
+  <title>Nathan's KrezCoin2 Page of Wealth</title>
+</head>
+
+<body>
+  <h1>Welcome to the Krezcoin2 Admin page!</h1>
+
+  {{> BasicInfo}}
+</body>
+
+<template name="BasicInfo">
+  <p>The name of this altcoin is {{CoinName}} {{TemplateVar.get "CoinName"}} </p>
+  <p>The symbol of this altcoin is  {{CoinSymbol}} {{TemplateVar.get "CoinSymbol"}} </p>
+  <p>The total supply of this altcoin is  {{CoinSupply}} {{TemplateVar.get "CoinSupply"}}</p>
+</template>
+
