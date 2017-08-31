@@ -11,10 +11,19 @@ if (typeof web3 !== 'undefined') {
   web3 = new Web3(web3.currentProvider);
 } else {
   // set the provider you want from Web3.providers
-//  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-web3 = new Web3(new Web3.providers.HttpProvider("https://krezcoindemo.herokuapp.com"));
+  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+//web3 = new Web3(new Web3.providers.HttpProvider("https://krezcoindemo.herokuapp.com"));
 }
 
+if(!web3.isConnected()) {
+   console.log("IM NOT CONNECTED")
+  //web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+} else {
+ 
+ console.log("IM CONNECTED")
+   // start web3 filters, calls, etc
+  
+}
 //Template.hello.onCreated(function helloOnCreated() {
   // counter starts at 0
  // this.counter = new ReactiveVar(0);
@@ -37,8 +46,7 @@ Template.BasicInfo.helpers({
   },
 
   CoinSupply() {
-    //var template = Template.instance();
-      var template = Template.instance();
+        var template = Template.instance();
         myContract.INITIAL_SUPPLY(function(err, res){
       TemplateVar.set(template, "CoinSupply", res)
     })
