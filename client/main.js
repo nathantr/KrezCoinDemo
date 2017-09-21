@@ -13,10 +13,12 @@ window.addEventListener('load', function() {
 
 if (typeof web3 !== 'undefined') {
   window.web3 = new Web3(web3.currentProvider);
+  //var web3 = web3.currentProvider;
 } else {
     console.log('No web3? You should consider trying MetaMask!')
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-  web3 = new Web3(new Web3.providers.HttpProvider("https://localhost:8545"));
+  //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  window.web3 = new Web3(new Web3.providers.HttpProvider("https://krezcoindemo.herokuapp.com/"))
 }
 
 if(!web3.isConnected()) {
@@ -32,6 +34,7 @@ if(!web3.isConnected()) {
   // counter starts at 0
  // this.counter = new ReactiveVar(0);
 //});
+
 })
 
 myContract = web3.eth.contract(ABIArray).at(contractAddress);
@@ -61,3 +64,5 @@ Template.BasicInfo.helpers({
    // 	function (err, res){
    // 	TemplateVar.set(template, "counter", res);})
 });
+
+
